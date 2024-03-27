@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>성훈의 방탈출</title>
+  </head>
+
+  <body>
+    <div class="top">
+      <div class="infoArea"></div>
+      <div class="leftArea">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="box">
+          <img src="./img/brush.png" alt="브러쉬" />
+        </div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <div class="centerArea"></div>
+      <div class="rightArea">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="cat">
+        <img src="./img/cat.png" alt="" />
+        <div class="rightArm"></div>
+        <div class="rightHand"></div>
+        <div class="leftArm"></div>
+        <div class="leftHand"></div>
+        <div class="key"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const box = document.querySelector(".box");
+    box.addEventListener("click", mousemove);
+
+    function mousemove(e) {
+      console.log("cliked!");
+      let x = e.pageX;
+      let y = e.pageY;
+      let targetX = e.pageX;
+      let targetY = e.pageX;
+      let speed = 0.1;
+
+      window.addEventListener("mousemove", (event) => {
+        x = event.pageX;
+        y = event.pageY;
+
+        targetX += (x - targetX) * speed;
+        targetY += (y - targetY) * speed;
+      });
+
+      const loop = () => {
+        targetX += (x - targetX) * speed;
+        targetY += (y - targetY) * speed;
+
+        box.style.top = targetY.toFixed(2) + "px";
+        box.style.left = targetX.toFixed(2) + "px";
+
+        window.requestAnimationFrame(loop);
+      };
+      loop();
+      catmove();
+      // 클릭 이벤트가 한 번만 실행되고 제거됩니다.
+      box.removeEventListener("click", mousemove);
+    }
+
+    document.querySelector(".key").addEventListener("click", () => {
+      console.log("key clicked!");
+    });
+
+    function catmove() {
+      let x = 0;
+      let targetX = 0;
+      const speed = 0.005;
+
+      const contentAll = document.querySelectorAll(".cat div");
+      const one = contentAll[0];
+      const two = contentAll[1];
+      const three = contentAll[2];
+      const four = contentAll[3];
+
+      window.addEventListener("mousemove", (event) => {
+        x = event.pageX - window.innerWidth / 2;
+      });
+
+      const loop = () => {
+        targetX += (x - targetX) * speed;
+
+        one.style.transform = `translateX(${targetX / 10}px)`;
+        two.style.transform = `translateX(${targetX / 15}px)`;
+        three.style.transform = `translateX(${-targetX / 20}px)`;
+        four.style.transform = `translateX(${-targetX / 10}px)`;
+        window.requestAnimationFrame(loop);
+      };
+      loop();
+    }
+  </script>
+</html>

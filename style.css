@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.top {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  background-color: #faeed6;
+  display: flex;
+  /* background-image: url(./img/bg.png); */
+  background-size: cover;
+  padding: 0 10%;
+}
+
+.top .infoArea {
+  position: fixed;
+  width: 15%;
+  height: 40%;
+  top: 30%;
+  right: 5%;
+  background-color: aliceblue;
+}
+
+.top .leftArea,
+.top .rightArea {
+  width: 30%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(3, auto);
+}
+
+.top .leftArea {
+  border-left: 3px solid black;
+}
+
+.top .rightArea {
+  border-right: 3px solid black;
+}
+
+.top .centerArea {
+  width: 20%;
+  height: 100%;
+  background-image: url("./img/centerArea.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.cell {
+  background-image: url("./img/key.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.cell:nth-child(3n + 1) {
+  background-image: url("./img/key-C.png");
+}
+
+.cell:nth-child(6n) {
+  background-image: url("./img/key-O.png");
+}
+
+.cell:nth-child(7n + 1) {
+  background-image: url("./img/key-R.png");
+}
+
+.box {
+  position: absolute;
+  width: 2%;
+  height: 60px;
+  position: absolute;
+  transform: translate(130%, 50%);
+  z-index: 4;
+  cursor: pointer;
+}
+
+.box img {
+  width: 150%;
+}
+
+.bottom {
+  position: relative;
+  width: 100%;
+  height: 40%;
+  background-color: #663a38;
+  /* background-image: url(./img/bottom.jpeg); */
+  background-size: cover;
+}
+
+.cat {
+  position: absolute;
+  width: 50%;
+  right: 5%;
+  top: -40%;
+  cursor: pointer;
+}
+
+.cat img {
+  width: 100%;
+  z-index: 3;
+}
+
+.cat div {
+  position: absolute;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+}
+
+.rightArm {
+  width: 20%;
+  height: 60%;
+  bottom: -6%;
+  right: 54%;
+  z-index: 1;
+  background-image: url(./img/rightArm.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.rightHand {
+  width: 10%;
+  height: 20%;
+  bottom: 0%;
+  right: 70%;
+  z-index: 1;
+  background-image: url(./img/rightHand.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.leftArm {
+  width: 20%;
+  height: 45%;
+  bottom: 0%;
+  left: -2%; 
+  z-index: 1;
+  background-image: url(./img/leftArm.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.leftHand {
+  width: 20%;
+  height: 20%;
+  bottom: 0%;
+  left: 3%;
+  z-index: 1;
+  background-image: url(./img/leftHand.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.key {
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  bottom: 0%;
+  left: 10%;
+  background-image: url(./img/mainKey.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
