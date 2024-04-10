@@ -80,6 +80,13 @@
       </div>
     </div>
     <div class="bottom">
+      <div class="clock">
+        <div class="niddle"></div>
+      </div>
+      <button class="bell" onclick="ringBell()"></button>
+      <audio id="ringSound">
+        <source src="./img/bell_sound.mp3">
+      </audio>
       <div class="cat">
         <img src="./img/cat.png" alt="" />
         <div class="rightArm"></div>
@@ -92,6 +99,8 @@
   </body>
   <script>
     const box = document.querySelector(".box");
+    const key = document.querySelector(".key");
+
     box.addEventListener("click", mousemove);
 
     function mousemove(e) {
@@ -149,11 +158,15 @@
 
         one.style.transform = `translateX(${targetX / 10}px)`;
         two.style.transform = `translateX(${targetX / 15}px)`;
-        three.style.transform = `translateX(${-targetX / 20}px)`;
-        four.style.transform = `translateX(${-targetX / 10}px)`;
+        three.style.transform = `translateX(${-targetX / 10}px)`;
+        four.style.transform = `translateX(${-targetX / 15}px)`;
         window.requestAnimationFrame(loop);
       };
       loop();
+    }
+    function ringBell() {
+        var audio = document.getElementById("ringSound");
+        audio.play();
     }
   </script>
 </html>
