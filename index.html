@@ -85,7 +85,7 @@
       </div>
       <button class="bell" onclick="ringBell()"></button>
       <audio id="ringSound">
-        <source src="./img/bell_sound.mp3">
+        <source src="./img/bell_sound.mp3" />
       </audio>
       <div class="cat">
         <img src="./img/cat.png" alt="" />
@@ -93,7 +93,7 @@
         <div class="rightHand"></div>
         <div class="leftArm"></div>
         <div class="leftHand"></div>
-        <div class="key"></div>
+        <a class="key" href=""></a>
       </div>
     </div>
   </body>
@@ -105,6 +105,7 @@
 
     function mousemove(e) {
       console.log("cliked!");
+      key.setAttribute("href", "https://www.google.com");
       let x = e.pageX;
       let y = e.pageY;
       let targetX = e.pageX;
@@ -165,8 +166,8 @@
       loop();
     }
     function ringBell() {
-        var audio = document.getElementById("ringSound");
-        audio.play();
+      var audio = document.getElementById("ringSound");
+      audio.play();
     }
   </script>
 </html>

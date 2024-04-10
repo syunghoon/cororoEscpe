@@ -163,7 +163,7 @@ button {
   width: 50%;
   right: 5%;
   top: -50%;
-  cursor: pointer;
+  cursor: no-drop;
 }
 
 .cat img {
@@ -235,4 +235,5 @@ button {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
 }
